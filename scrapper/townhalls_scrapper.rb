@@ -2,6 +2,7 @@ require 'pry'
 require 'rubygems'
 require 'nokogiri'  
 require 'open-uri'
+require 'json'
 
 # Fonction get_the_email_of_a_townhall_from_its_webpage
 # @params : 
@@ -60,8 +61,25 @@ def get_name_email_of_departement(name_departement)
 	return result
 end
 
+# Fonction to_json
+# Permet de tranformer l'array en fichier json ("emailsmairies.json")
+# @params : array
+# return : none
+def to_json(array_object)
+	# Crée le fichier ou écris au dessus
+	File.open("../database/data.json","w") do |f|
+		# La fontion .to_json permet de transformer l'objet en JSON. require 'json'
+		f.write(array_object.to_json)
+	end
+end
+
 def perform
-	puts get_name_email_of_departement("Calvados")
+	binding.pry
+	result = []
+	result.concat(get_name_email_of_departement("calvados"))
+	result.concat(get_name_email_of_departement("manche"))
+	result.concat(get_name_email_of_departement("finistere"))
+	to_json(result)
 end
 
 perform
