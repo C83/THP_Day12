@@ -79,7 +79,7 @@ end
 # return : none
 def to_json(array_object)
 	# Crée le fichier ou écris au dessus
-	File.open("../database/"+SELECT_FILE,"w") do |f|
+	File.open("database/"+SELECT_FILE,"w") do |f|
 		# La fontion .to_json permet de transformer l'objet en JSON. require 'json'
 		f.write(array_object.to_json)
 	end

@@ -4,8 +4,8 @@ require 'dotenv'
 require 'json'
 
 # Majuscule car constantes
-# SELECT_FILE = "townhalls_exemple.json"
-SELECT_FILE = "data.json"
+SELECT_FILE = "townhalls_exemple.json"
+# SELECT_FILE = "data.json"
 NAME_OF_SENDER = "Julia"
 
 # Fonction get_the_email_text
@@ -79,7 +79,7 @@ def send_mails(array_of_hash)
 end
 
 def load_data
-	json = File.read('../database/'+SELECT_FILE)
+	json = File.read('database/'+SELECT_FILE)
 	array_of_hash = JSON.parse(json)
 end
 
