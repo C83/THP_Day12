@@ -4,6 +4,9 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
+# Majuscule car constante
+SELECT_FILE = "data.json"
+
 # Fonction get_the_email_of_a_townhall_from_its_webpage
 # @params : 
 # 	townhall_url : la page de la mairie
@@ -67,7 +70,7 @@ end
 # return : none
 def to_json(array_object)
 	# Crée le fichier ou écris au dessus
-	File.open("../database/data.json","w") do |f|
+	File.open("../database/"+SELECT_FILE,"w") do |f|
 		# La fontion .to_json permet de transformer l'objet en JSON. require 'json'
 		f.write(array_object.to_json)
 	end
@@ -76,8 +79,11 @@ end
 def perform
 	binding.pry
 	result = []
+	puts "Commencement du scrapping pour le département du Calvados"
 	result.concat(get_name_email_of_departement("calvados"))
+	puts "Commencement du scrapping pour le département de la Manche"
 	result.concat(get_name_email_of_departement("manche"))
+	puts "Commencement du scrapping pour le département du Finistère"
 	result.concat(get_name_email_of_departement("finistere"))
 	to_json(result)
 end
