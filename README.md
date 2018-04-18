@@ -21,7 +21,9 @@ Un quatrième dossier nommé database permet de ranger les fichiers de données,
 ## Utilisation du programme
 ### Scrapper
 Il est possible de modifier le nom du fichier qui sera enregistré dans le dossier database. Pour cela, modifier la constante SELECT_FILE. 
+
 **Exception :** Si une page est down, l'exception est normalement prise en compte. 
+
 **Résultat :** A titre d'exemple, les résultats ont été mis dans le fichier database/data_result.json.
 
 1. **Rester à la racine du projet** (important pour le bon enregistrement du fichier !)
@@ -32,8 +34,11 @@ Il est possible de modifier le nom du fichier qui sera enregistré dans le dossi
 
 ### Mailer
 Il est possible de modifier le fichier qui sera lu dans le dossier database. Pour cela, modifier la constante SELECT_FILE. 
+
 **Gestion des identifiants :** un fichier .env est invoqué dans le programme. Le placer à la racine du projet. Celui-ci doit contenir une constante GMAIL_EMAIL et une autre GMAIL_MDP, correspondant respectivement à l'adresse mail et au mot de passe de votre compte GMail. Pour plus de détail sur dotenv, voir [ici](https://github.com/felhix/cheat_sheets/blob/master/Ruby/dotenv.md).
+
 **Prénom de l'élève :** Vous pouvez adapter le nom de l'élève en fonction de l'adresse mail d'envoie utilisée en modifiant la constante NAME_OF_SENDER
+
 **Test :** Par défaut, le fichier JSON lu sera un jeu de donnée de test. Les mails seront envoyés sur l'adresse yopmail huzobiqy-4491@yopmail.com. Pour utiliser le fichier du scrapper, coordonner la constante SELECT_FILE de ces deux fichiers.  
 
 1. **Rester à la racine du projet** (important pour le bon enregistrement du fichier !)
@@ -44,14 +49,24 @@ Il est possible de modifier le fichier qui sera lu dans le dossier database. Pou
 
 ### Twitter
 Il est possible de modifier le fichier qui sera lu dans le dossier database. Pour cela, modifier la constante SELECT_FILE.
-**Analyse du JSON :** le fichier choisi JSON dans database est analysé et est transformé en objet ruby pour ensuite pouvoir récupérer les données qu'il contient, notamment le nom de la mairie. **Handle twitter :** le nom de la mairie est recherché sur twitter ensuite le identifiant de l'utilisateur est récupéré pour être ajouté à un nouveau fichier JSON dans lequel on retrouve les données de départ, à savoir : le nome de la mairie, le département, l'adresse email et maintenant **l'identifiant de l'utilisateur**. Pour finir, l'ID nous permet ensuite de **suivre l'utilisateur** avec à ce compte twitter : https://twitter.com/Itsme_Imadev (Renommé 'Apprendre à coder' pour l'occas)
+
+**Analyse du JSON :** le fichier choisi JSON dans database est analysé et est transformé en objet ruby pour ensuite pouvoir récupérer les données qu'il contient, notamment le nom de la mairie. 
+
+**Handle twitter :** le nom de la mairie est recherché sur twitter ensuite le identifiant de l'utilisateur est récupéré pour être ajouté à un nouveau fichier JSON dans lequel on retrouve les données de départ, à savoir : le nome de la mairie, le département, l'adresse email et maintenant 
+
+**l'identifiant de l'utilisateur**. Pour finir, l'ID nous permet ensuite de **suivre l'utilisateur** avec à ce compte twitter : https://twitter.com/Itsme_Imadev (Renommé 'Apprendre à coder' pour l'occas)
 
 1. **Rester à la racine du projet** (important pour le bon enregistrement du fichier !)
-2. Vous si vous souhaitez vraiment lancer le programme et follow des gens avec votre twitter alors faite un fichier ```.env``` toujours dans le dossier ```ruby twitter/``` et ajoutez y vos ID et API twitter, pour vous simplefiez la tache, copiez/collez ceci, suivi de vos données :
+2. Vous si vous souhaitez vraiment lancer le programme et follow des gens avec votre twitter alors rajoutez les ID et API twitter de votre code, pour vous simplifiez la tache, copiez/collez ceci, suivi de vos données :
+
 ```TWITTER_API_KEY =```
+
 ```TWITTER_API_SECRET =```
+
 ```TWITTER_ACCESS_TOKEN =```
+
 ```TWITTER_ACCESS_TOKEN_SECRET =```
+
 3. Lancer le programme en ruby : ```ruby twitter/townhalls_adder_to_db.rb```
 4. Patientez, encore un peu
 5. Les ID des utilisateur sont ajoutés, vous pouvez vérifier le fichier dans ```ruby database/le nom du fichier séléctionné avec SELECT_FILE``` => ```ruby database/townhalls_exemple.json```
