@@ -48,10 +48,10 @@ Il est possible de modifier le fichier qui sera lu dans le dossier database. Pou
 
 1. **Rester à la racine du projet** (important pour le bon enregistrement du fichier !)
 2. Vous si vous souhaitez vraiment lancer le programme et follow des gens avec votre twitter alors faite un fichier ```.env``` toujours dans le dossier ```ruby twitter/``` et ajoutez y vos ID et API twitter, pour vous simplefiez la tache, copiez/collez ceci, suivi de vos données :
-```TWITTER_API_KEY =
-TWITTER_API_SECRET =
-TWITTER_ACCESS_TOKEN =
-TWITTER_ACCESS_TOKEN_SECRET =```
+```TWITTER_API_KEY =```
+```TWITTER_API_SECRET =```
+```TWITTER_ACCESS_TOKEN =```
+```TWITTER_ACCESS_TOKEN_SECRET =```
 3. Lancer le programme en ruby : ```ruby twitter/townhalls_adder_to_db.rb```
 4. Patientez, encore un peu
 5. Les ID des utilisateur sont ajoutés, vous pouvez vérifier le fichier dans ```ruby database/le nom du fichier séléctionné avec SELECT_FILE``` => ```ruby database/townhalls_exemple.json```
